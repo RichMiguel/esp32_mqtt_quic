@@ -1,0 +1,61 @@
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3718: bridge.mqtt.emqx1.forwards: 
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3721: 	[0] remote topic:        sensor/air_quality
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3725: 	[0] local topic:        sensor/air_quality
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3730: bridge.mqtt.emqx1.subscription: 
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3733: 	[1] remote topic:        sensor/air_quality
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3736: 	[1] local topic:        sensor/air_quality/remote
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3739: 	[1] qos:          1
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3741: 	[1] rap:          0
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3743: 	[1] rh:           0
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nanomq/apps/broker.c:1657: 314
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:500: begin dialing!
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1564: Msquic is enabled
+2026-11-02 21:23:31 [314] WARN  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1597: No quic TLS/SSL credentials (cacert and key) was specified.
+2026-11-02 21:23:31 [314] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1679: Quic connecting... broker.emqx.io:14567
+2026-11-02 21:23:32 [330] WARN  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:307: nego aio error: Connection shutdown
+2026-11-02 21:23:32 [330] ERROR /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:468: connect nego error rv:(31)
+2026-11-02 21:23:32 [332] WARN  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:307: nego aio error: Connection shutdown
+2026-11-02 21:23:32 [332] ERROR /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:468: connect nego error rv:(31)
+2026-11-02 21:23:32 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1337: QUIC_CONNECTION_EVENT_STREAMS_AVAILABLE
+2026-11-02 21:23:32 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1334: QUIC_CONNECTION_EVENT_DATAGRAM_STATE_CHANGED
+2026-11-02 21:23:33 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1237: [conn][0x59be9b5ac4a0] is Connected. Resumed Session 0
+2026-11-02 21:23:33 [337] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:463: assign 0x7f5d70002170 to substreams 0
+2026-11-02 21:23:33 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1488: [sid0][0x7f5d70000b70] QUIC_STREAM_EVENT_START_COMPLETE ID0 Status0
+2026-11-02 21:23:33 [337] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:463: assign 0x7f5d70003880 to substreams 1
+2026-11-02 21:23:33 [337] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:463: assign 0x7f5d70004f90 to substreams 2
+2026-11-02 21:23:33 [337] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:463: assign 0x7f5d700066a0 to substreams 3
+2026-11-02 21:23:33 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1488: [sid1][0x7f5d70002410] QUIC_STREAM_EVENT_START_COMPLETE ID4 Status0
+2026-11-02 21:23:33 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1488: [sid2][0x7f5d70003b20] QUIC_STREAM_EVENT_START_COMPLETE ID8 Status0
+2026-11-02 21:23:33 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1488: [sid3][0x7f5d70005230] QUIC_STREAM_EVENT_START_COMPLETE ID12 Status0
+2026-11-02 21:23:33 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1488: [sid4][0x7f5d70006940] QUIC_STREAM_EVENT_START_COMPLETE ID16 Status0
+2026-11-02 21:23:33 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1304: [conn][0x59be9b5ac4a0] Resumption ticket received (2827 bytes):
+
+2026-11-02 21:23:33 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1503: [sid0] QUIC_STREAM_EVENT_IDEAL_SEND_BUFFER_SIZE
+2026-11-02 21:23:33 [344] INFO  /home/runner/work/nanomq/nanomq/nanomq/bridge.c:876: Bridge client connected! RC [0]
+2026-11-02 21:23:33 [345] INFO  /home/runner/work/nanomq/nanomq/nng/src/mqtt/protocol/mqtt/mqtt_quic_client.c:590: Update keepalive to 60000ms
+2026-11-02 21:23:33 [344] INFO  /home/runner/work/nanomq/nanomq/nanomq/bridge.c:877: Local ip4 address [190.89.0.0] port [22427]
+2026-11-02 21:23:33 [345] INFO  /home/runner/work/nanomq/nanomq/nanomq/apps/broker.c:365: bridge client is connected!
+2026-11-02 21:23:33 [344] INFO  /home/runner/work/nanomq/nanomq/nanomq/bridge.c:889: Quic bridge client subscribe to topic (QoS 1)sensor/air_quality.
+2026-11-02 21:23:33 [350] INFO  /home/runner/work/nanomq/nanomq/nanomq/bridge.c:310: bridge: subscribe aio result 0
+2026-11-02 21:23:33 [350] INFO  /home/runner/work/nanomq/nanomq/nanomq/bridge.c:312: bridge: suback code 1 
+2026-11-02 21:23:34 [354] WARN  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:307: nego aio error: Connection shutdown
+2026-11-02 21:23:34 [354] ERROR /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:468: connect nego error rv:(31)
+2026-11-02 21:23:34 [355] WARN  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:307: nego aio error: Connection shutdown
+2026-11-02 21:23:34 [355] ERROR /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:468: connect nego error rv:(31)
+2026-11-02 21:23:36 [334] INFO  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:409: max_packet_size of ESP32_AirQuality_01 is 10485760
+2026-11-02 21:23:39 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1503: [sid2] QUIC_STREAM_EVENT_IDEAL_SEND_BUFFER_SIZE
+2026-11-02 21:23:40 [331] INFO  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:409: max_packet_size of nodered_airquality_client is 10485760
+2026-11-02 21:23:40 [334] INFO  /home/runner/work/nanomq/nanomq/nanomq/sub_handler.c:95: topic: [sensor/air_quality/remote] len: [25] pid [41314]
+2026-11-02 21:23:40 [339] INFO  /home/runner/work/nanomq/nanomq/nanomq/sub_handler.c:95: topic: [sensor/air_quality] len: [18] pid [41315]
+2026-11-02 21:25:17 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1503: [sid4] QUIC_STREAM_EVENT_IDEAL_SEND_BUFFER_SIZE
+2026-11-02 21:25:17 [395] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1503: [sid3] QUIC_STREAM_EVENT_IDEAL_SEND_BUFFER_SIZE
+2026-11-02 21:33:50 [314] ERROR /home/runner/work/nanomq/nanomq/nanomq/apps/broker.c:108: signal signumber: 1 received!
+
+2026-11-02 21:33:51 [355] WARN  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:683: nni aio recv error!! Connection shutdown
+
+2026-11-02 21:33:51 [355] WARN  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:966: tcptran_pipe_recv_cb: recv_error rv: 139
+
+2026-11-02 21:33:51 [354] INFO  /home/runner/work/nanomq/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:871: ESP32_AirQuality_01 pipe close!
+2026-11-02 21:33:52 [344] INFO  /home/runner/work/nanomq/nanomq/nanomq/unsub_handler.c:189: UnSub topic [sensor/air_quality/remote] in client [nodered_airquality_client]. pid [41316]
+2026-11-02 21:33:52 [350] INFO  /home/runner/work/nanomq/nanomq/nanomq/unsub_handler.c:189: UnSub topic [sensor/air_quality] in client [nodered_airquality_client]. pid [41317]
+2026-11-02 21:33:52 [328] INFO  /home/runner/work/nanomq/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:871: nodered_airquality_client pipe close!

@@ -1,0 +1,515 @@
+[
+  {
+    "id": "tab_air_quality",
+    "type": "tab",
+    "label": "IoT Air Quality (QUIC)",
+    "disabled": false,
+    "info": "Flow untuk monitoring Air Quality dari ESP32 via NanoMQ MQTT over QUIC"
+  },
+  {
+    "id": "broker_nanomq_local",
+    "type": "mqtt-broker",
+    "name": "Local NanoMQ (Port 1885)",
+    "broker": "127.0.0.1",
+    "port": "1885",
+    "clientid": "nodered_airquality_client",
+    "autoConnect": true,
+    "usetls": false,
+    "protocolVersion": "4",
+    "keepalive": "60",
+    "cleansession": true,
+    "autoUnsubscribe": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthPayload": "",
+    "birthMsg": {},
+    "closeTopic": "",
+    "closeQos": "0",
+    "closePayload": "",
+    "closeMsg": {},
+    "willTopic": "",
+    "willQos": "0",
+    "willPayload": "",
+    "willMsg": {},
+    "userProps": "",
+    "sessionExpiry": ""
+  },
+  {
+    "id": "ui_tab_air_quality",
+    "type": "ui_tab",
+    "name": "Air Quality (QUIC)",
+    "icon": "dashboard",
+    "order": 1,
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "ui_group_quic_status",
+    "type": "ui_group",
+    "name": "Transport QUIC & EMQX",
+    "tab": "ui_tab_air_quality",
+    "order": 1,
+    "disp": true,
+    "width": "6",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "ui_group_dust",
+    "type": "ui_group",
+    "name": "Partikulat Debu (GP2Y1010AU0F)",
+    "tab": "ui_tab_air_quality",
+    "order": 2,
+    "disp": true,
+    "width": "6",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "ui_group_gas",
+    "type": "ui_group",
+    "name": "Gas & CO2 (MQ-135 via ADS1115)",
+    "tab": "ui_tab_air_quality",
+    "order": 3,
+    "disp": true,
+    "width": "6",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "ui_group_chart",
+    "type": "ui_group",
+    "name": "Grafik Real-Time (Data QUIC Stream)",
+    "tab": "ui_tab_air_quality",
+    "order": 4,
+    "disp": true,
+    "width": "12",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "mqtt_in_quic",
+    "type": "mqtt in",
+    "z": "tab_air_quality",
+    "name": "Subscribe via QUIC Bridge (EMQX)",
+    "topic": "sensor/air_quality/remote",
+    "qos": "1",
+    "datatype": "auto-detect",
+    "broker": "broker_nanomq_local",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 190,
+    "y": 180,
+    "wires": [
+      [
+        "json_parser"
+      ]
+    ]
+  },
+  {
+    "id": "mqtt_in_local",
+    "type": "mqtt in",
+    "z": "tab_air_quality",
+    "name": "Subscribe Local (ESP32 Direct)",
+    "topic": "sensor/air_quality",
+    "qos": "1",
+    "datatype": "auto-detect",
+    "broker": "broker_nanomq_local",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 180,
+    "y": 280,
+    "wires": [
+      [
+        "debug_local_direct"
+      ]
+    ]
+  },
+  {
+    "id": "debug_local_direct",
+    "type": "debug",
+    "z": "tab_air_quality",
+    "name": "Debug: Lokal (sebelum QUIC)",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 450,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "json_parser",
+    "type": "json",
+    "z": "tab_air_quality",
+    "name": "Parse JSON",
+    "property": "payload",
+    "action": "obj",
+    "pretty": false,
+    "x": 450,
+    "y": 220,
+    "wires": [
+      [
+        "debug_full_payload",
+        "ui_template_status",
+        "fn_dust_gauge",
+        "fn_dust_status",
+        "fn_dust_volt",
+        "fn_co2_gauge",
+        "fn_gas_status",
+        "fn_gas_rs"
+      ]
+    ]
+  },
+  {
+    "id": "ui_template_status",
+    "type": "ui_template",
+    "z": "tab_air_quality",
+    "group": "ui_group_quic_status",
+    "name": "Badge Transport QUIC",
+    "order": 1,
+    "width": "6",
+    "height": "6",
+    "format": "<div style=\"padding:12px; border-radius:10px; background:linear-gradient(135deg, #0d324d 0%, #1a5276 100%); color:#ffffff; font-family:sans-serif;\">\n  <div style=\"display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;\">\n    <span style=\"font-size:16px; font-weight:bold; color:#58d68d;\">⚡ MQTT over QUIC</span>\n    <span style=\"background:#27ae60; padding:2px 8px; border-radius:12px; font-size:11px;\">TERHUBUNG</span>\n  </div>\n  <p style=\"margin:4px 0; font-size:12px;\"><b>Upstream EMQX:</b> <code>broker.emqx.io:14567 (UDP)</code></p>\n  <p style=\"margin:4px 0; font-size:12px;\"><b>Local Edge:</b> <code>NanoMQ (Port 1885)</code></p>\n  <p style=\"margin:4px 0; font-size:12px;\"><b>Topik Sub:</b> <code>sensor/air_quality/remote</code></p>\n  <hr style=\"border:0; border-top:1px solid rgba(255,255,255,0.2); margin:8px 0;\">\n  <p style=\"margin:4px 0; font-size:12px;\"><b>Device ID:</b> {{msg.payload.device}}</p>\n  <p style=\"margin:4px 0; font-size:12px;\"><b>Uptime ESP32:</b> {{msg.payload.uptime}} detik</p>\n  <p style=\"margin:6px 0 0 0; font-size:11px; color:#85c1e9;\"><i>Data ini berhasil memantul kembali dari EMQX Cloud via QUIC</i></p>\n</div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "resendOnRefresh": true,
+    "templateScope": "local",
+    "className": "",
+    "x": 730,
+    "y": 100,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "fn_dust_gauge",
+    "type": "function",
+    "z": "tab_air_quality",
+    "name": "Extract Dust",
+    "func": "const val = msg.payload.dust ? msg.payload.dust.ug_m3 : 0;\nreturn [\n  { payload: val }, // Ke Gauge\n  { topic: 'Debu (ug/m3)', payload: val } // Ke Chart\n];",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 710,
+    "y": 180,
+    "wires": [
+      [
+        "ui_gauge_dust"
+      ],
+      [
+        "ui_chart_realtime"
+      ]
+    ]
+  },
+  {
+    "id": "ui_gauge_dust",
+    "type": "ui_gauge",
+    "z": "tab_air_quality",
+    "name": "Gauge Debu",
+    "group": "ui_group_dust",
+    "order": 1,
+    "width": "6",
+    "height": "4",
+    "gtype": "gage",
+    "title": "Konsentrasi Debu",
+    "label": "µg/m³",
+    "format": "{{value}}",
+    "min": 0,
+    "max": 300,
+    "colors": [
+      "#2ecc71",
+      "#f39c12",
+      "#e74c3c"
+    ],
+    "seg1": "35",
+    "seg2": "75",
+    "diff": false,
+    "className": "",
+    "x": 930,
+    "y": 160,
+    "wires": []
+  },
+  {
+    "id": "fn_dust_status",
+    "type": "function",
+    "z": "tab_air_quality",
+    "name": "Extract Dust Status",
+    "func": "msg.payload = msg.payload.dust ? msg.payload.dust.status : 'N/A';\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 730,
+    "y": 240,
+    "wires": [
+      [
+        "ui_text_dust_status"
+      ]
+    ]
+  },
+  {
+    "id": "ui_text_dust_status",
+    "type": "ui_text",
+    "z": "tab_air_quality",
+    "group": "ui_group_dust",
+    "order": 2,
+    "width": "6",
+    "height": "1",
+    "name": "Text Status Debu",
+    "label": "Kualitas Udara (Debu):",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "className": "",
+    "x": 950,
+    "y": 240,
+    "wires": []
+  },
+  {
+    "id": "fn_dust_volt",
+    "type": "function",
+    "z": "tab_air_quality",
+    "name": "Extract Dust Volt",
+    "func": "const v = msg.payload.dust ? msg.payload.dust.volt : 0;\nmsg.payload = v.toFixed(3) + ' V';\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 730,
+    "y": 280,
+    "wires": [
+      [
+        "ui_text_dust_volt"
+      ]
+    ]
+  },
+  {
+    "id": "ui_text_dust_volt",
+    "type": "ui_text",
+    "z": "tab_air_quality",
+    "group": "ui_group_dust",
+    "order": 3,
+    "width": "6",
+    "height": "1",
+    "name": "Text Tegangan GP2Y",
+    "label": "Tegangan Vo:",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "className": "",
+    "x": 960,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "fn_co2_gauge",
+    "type": "function",
+    "z": "tab_air_quality",
+    "name": "Extract CO2",
+    "func": "const val = msg.payload.mq135 ? msg.payload.mq135.co2_ppm : 0;\nreturn [\n  { payload: val }, // Ke Gauge\n  { topic: 'CO2 (ppm)', payload: val } // Ke Chart\n];",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 710,
+    "y": 340,
+    "wires": [
+      [
+        "ui_gauge_co2"
+      ],
+      [
+        "ui_chart_realtime"
+      ]
+    ]
+  },
+  {
+    "id": "ui_gauge_co2",
+    "type": "ui_gauge",
+    "z": "tab_air_quality",
+    "name": "Gauge CO2",
+    "group": "ui_group_gas",
+    "order": 1,
+    "width": "6",
+    "height": "4",
+    "gtype": "gage",
+    "title": "Estimasi Gas CO2",
+    "label": "ppm",
+    "format": "{{value}}",
+    "min": 0,
+    "max": 2000,
+    "colors": [
+      "#2ecc71",
+      "#f39c12",
+      "#e74c3c"
+    ],
+    "seg1": "400",
+    "seg2": "1000",
+    "diff": false,
+    "className": "",
+    "x": 930,
+    "y": 340,
+    "wires": []
+  },
+  {
+    "id": "fn_gas_status",
+    "type": "function",
+    "z": "tab_air_quality",
+    "name": "Extract Gas Status",
+    "func": "msg.payload = msg.payload.mq135 ? msg.payload.mq135.status : 'N/A';\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 730,
+    "y": 400,
+    "wires": [
+      [
+        "ui_text_gas_status"
+      ]
+    ]
+  },
+  {
+    "id": "ui_text_gas_status",
+    "type": "ui_text",
+    "z": "tab_air_quality",
+    "group": "ui_group_gas",
+    "order": 2,
+    "width": "6",
+    "height": "1",
+    "name": "Text Status Gas",
+    "label": "Kualitas Udara (Gas):",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "className": "",
+    "x": 950,
+    "y": 400,
+    "wires": []
+  },
+  {
+    "id": "fn_gas_rs",
+    "type": "function",
+    "z": "tab_air_quality",
+    "name": "Extract Gas Rs",
+    "func": "const rs = msg.payload.mq135 ? msg.payload.mq135.rs_kohm : 0;\nmsg.payload = rs.toFixed(2) + ' kΩ';\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 720,
+    "y": 440,
+    "wires": [
+      [
+        "ui_text_gas_rs"
+      ]
+    ]
+  },
+  {
+    "id": "ui_text_gas_rs",
+    "type": "ui_text",
+    "z": "tab_air_quality",
+    "group": "ui_group_gas",
+    "order": 3,
+    "width": "6",
+    "height": "1",
+    "name": "Text Resistansi Rs",
+    "label": "Resistansi Sensor (Rs):",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "className": "",
+    "x": 960,
+    "y": 440,
+    "wires": []
+  },
+  {
+    "id": "ui_chart_realtime",
+    "type": "ui_chart",
+    "z": "tab_air_quality",
+    "name": "Grafik Riwayat",
+    "group": "ui_group_chart",
+    "order": 1,
+    "width": "12",
+    "height": "6",
+    "label": "Grafik Real-Time Debu & Gas (QUIC Stream)",
+    "chartType": "line",
+    "legend": "true",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "Menunggu data dari EMQX broker via QUIC...",
+    "dot": false,
+    "ymin": "0",
+    "ymax": "",
+    "removeOlder": "15",
+    "removeOlderPoints": "",
+    "removeOlderUnit": "60",
+    "cutout": 0,
+    "useOneColor": false,
+    "useUTC": false,
+    "colors": [
+      "#3498db",
+      "#e67e22",
+      "#2ecc71",
+      "#e74c3c",
+      "#9b59b6",
+      "#34495e",
+      "#1abc9c",
+      "#7f8c8d",
+      "#f1c40f",
+      "#e91e63"
+    ],
+    "outputs": 1,
+    "useDifferentColor": false,
+    "className": "",
+    "x": 940,
+    "y": 500,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "debug_full_payload",
+    "type": "debug",
+    "z": "tab_air_quality",
+    "name": "Debug: Full JSON",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 730,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "comment_notes",
+    "type": "comment",
+    "z": "tab_air_quality",
+    "name": "Panduan Dashboard UI",
+    "info": "1. Akses UI Dashboard di browser: http://localhost:1880/ui\n2. Data bersumber dari topik 'sensor/air_quality/remote' (data yang berhasil bolak-balik via QUIC ke EMQX).\n3. Broker NanoMQ lokal aktif pada port 1885.",
+    "x": 180,
+    "y": 80,
+    "wires": []
+  }
+]

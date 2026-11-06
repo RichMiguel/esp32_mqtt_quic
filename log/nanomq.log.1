@@ -1,0 +1,73 @@
+2026-11-02 20:49:58 [329] INFO  /home/runner/work/nanomq/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:871: test_relay pipe close!
+2026-11-02 20:49:59 [352] WARN  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:683: nni aio recv error!! Connection shutdown
+
+2026-11-02 20:49:59 [355] INFO  /home/runner/work/nanomq/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:871: rt_sub pipe close!
+2026-11-02 20:49:59 [352] WARN  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:966: tcptran_pipe_recv_cb: recv_error rv: 139
+
+2026-11-02 20:49:59 [392] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/quic/msquic_dial.c:1503: [sid1] QUIC_STREAM_EVENT_IDEAL_SEND_BUFFER_SIZE
+2026-11-02 20:50:54 [332] INFO  /home/runner/work/nanomq/nanomq/nng/src/mqtt/protocol/mqtt/mqtt_quic_client.c:829: Send pingreq (sock0x62a43ab26f28)(60000ms)
+2026-11-02 20:51:54 [354] INFO  /home/runner/work/nanomq/nanomq/nng/src/mqtt/protocol/mqtt/mqtt_quic_client.c:829: Send pingreq (sock0x62a43ab26f28)(60000ms)
+2026-11-02 20:52:23 [315] ERROR /home/runner/work/nanomq/nanomq/nanomq/apps/broker.c:108: signal signumber: 1 received!
+
+2026-11-02 20:52:24 [348] INFO  /home/runner/work/nanomq/nanomq/nanomq/unsub_handler.c:189: UnSub topic [sensor/air_quality/remote] in client [nodered_airquality_client]. pid [56434]
+2026-11-02 20:52:24 [350] INFO  /home/runner/work/nanomq/nanomq/nanomq/unsub_handler.c:189: UnSub topic [sensor/air_quality] in client [nodered_airquality_client]. pid [56435]
+2026-11-02 20:52:24 [331] INFO  /home/runner/work/nanomq/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:871: nodered_airquality_client pipe close!
+2026-11-02 20:52:28 [329] WARN  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:307: nego aio error: Connection shutdown
+2026-11-02 20:52:29 [329] ERROR /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:468: connect nego error rv:(31)
+2026-11-02 20:52:31 [332] WARN  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:307: nego aio error: Connection shutdown
+2026-11-02 20:52:31 [332] ERROR /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:468: connect nego error rv:(31)
+2026-11-02 20:52:31 [346] WARN  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:307: nego aio error: Connection shutdown
+2026-11-02 20:52:31 [346] ERROR /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:468: connect nego error rv:(31)
+2026-11-02 20:52:37 [356] INFO  /home/runner/work/nanomq/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:409: max_packet_size of nodered_airquality_client is 10485760
+2026-11-02 20:52:37 [355] INFO  /home/runner/work/nanomq/nanomq/nanomq/sub_handler.c:95: topic: [sensor/air_quality/remote] len: [25] pid [18198]
+2026-11-02 20:52:37 [352] INFO  /home/runner/work/nanomq/nanomq/nanomq/sub_handler.c:95: topic: [sensor/air_quality] len: [18] pid [18199]
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1345: This NanoMQ instance configured as:
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1348: tcp url:                  nmq-tcp://0.0.0.0:1885 
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1369: daemon:                   false
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1371: num_taskq_thread:         24
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1373: max_taskq_thread:         24
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1375: parallel:                 24
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1376: property_size:            32
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1377: max_packet_size:          10485760
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1378: client_max_packet_size:   10485760
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1380: max_mqueue_len:           20480
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1381: max_inflight_window:      2048
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1382: max_awaiting_rel:         10s
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1383: await_rel_timeout:        10s
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1384: retry_interval:           10s
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1385: keepalive_multiplier:     1.500000
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1423: allow_anonymous:          true
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1427: acl_nomatch:              allow
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1429: enable_acl_cache:         on
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1431: acl_cache_max_size:       32
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1433: acl_cache_ttl:            60
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:1434: acl_deny_action:          ignore
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3654: bridge.mqtt.emqx1.address:                    mqtt-quic://broker.emqx.io:14567
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3656: bridge.mqtt.emqx1.proto_ver:                  4
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3658: bridge.mqtt.emqx1.clientid:                   nanomq_edge_laptop
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3660: bridge.mqtt.emqx1.enable:                     1
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3662: bridge.mqtt.emqx1.clean_start:                1
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3664: bridge.mqtt.emqx1.username:                   (null)
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3666: bridge.mqtt.emqx1.keepalive:                  60
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3668: bridge.mqtt.emqx1.backoff_max:                5
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3670: bridge.mqtt.emqx1.max_parallel_processes:     2
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3672: bridge.mqtt.emqx1.resend_interval:            5000
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3674: bridge.mqtt.emqx1.resend_wait:                3000
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3676: bridge.mqtt.emqx1.cancel_timeout:             10000
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3678: bridge.mqtt.emqx1.hybrid_bridging       :     false
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3680: bridge.mqtt.emqx1.hybrid_servers: 
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3688: bridge.mqtt.emqx1.quic_multi_stream:          false
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3690: bridge.mqtt.emqx1.quic_keepalive:             30
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3692: bridge.mqtt.emqx1.quic_handshake_timeout:     20
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3694: bridge.mqtt.emqx1.quic_discon_timeout:        20
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3696: bridge.mqtt.emqx1.qidle_timeout:              60
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3698: bridge.mqtt.emqx1.qsend_idle_timeout:         2
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3700: bridge.mqtt.emqx1.qinitial_rtt_ms:            800
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3702: bridge.mqtt.emqx1.qmax_ack_delay_ms:          800
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3704: bridge.mqtt.emqx1.qcongestion_control:        0
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3706: bridge.mqtt.emqx1.quic_0rtt:                  true
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3710: bridge.mqtt.emqx1.tls.enable:                 false
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3718: bridge.mqtt.emqx1.forwards: 
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3721: 	[0] remote topic:        sensor/air_quality
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3725: 	[0] local topic:        sensor/air_quality
+2026-11-02 20:55:03 [309] INFO  /home/runner/work/nanomq/nanomq/nng/src/supplemental/nanolib/conf.c:3730: bridge.mqtt.emqx1.subscription: 
